@@ -53,7 +53,7 @@ int main(int argc, char **argv) {
   std::cout << "Client connected\n";
   
   //std::cout<< "+PONG\r\n";
-  write(x, "+PONG\r\n", 256);
+  write(x, "+PONG\r\n", 9);
   close(server_fd);
 
   return 0;
