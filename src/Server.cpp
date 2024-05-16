@@ -49,11 +49,12 @@ int main(int argc, char **argv) {
   
   std::cout << "Waiting for a client to connect...\n";
   
-  int x = accept(server_fd, (struct sockaddr *) &client_addr, (socklen_t *) &client_addr_len);
+  int client_fd = accept(server_fd, (struct sockaddr *) &client_addr, (socklen_t *) &client_addr_len);
   std::cout << "Client connected\n";
   
+  char* resp = "+PONG\r\n";
   //std::cout<< "+PONG\r\n";
-  write(x, "+PONG\r\n", 9);
+  write(client_fd, resp, strlen(resp));
   close(server_fd);
 
   return 0;
